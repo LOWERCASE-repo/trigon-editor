@@ -1,13 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-/*
-cam script pan, single click select cluster
-
-
-
-*/
-
 public class Trigon : MonoBehaviour {
   
   [Range(0f, 1f)]
@@ -16,6 +9,7 @@ public class Trigon : MonoBehaviour {
   private HashSet<Linker> linkers = new HashSet<Linker>();
   private Vector2 prevMousePos = Vector2.negativeInfinity;
   private Vector2[] triangle;
+  private Vector2 mousePos;
   
   [Header("Components")]
   [SerializeField]
@@ -26,6 +20,8 @@ public class Trigon : MonoBehaviour {
   private MeshRenderer renderer;
   [SerializeField]
   private PolygonCollider2D collider;
+  [SerializeField]
+  private Animator animator;
   [SerializeField]
   private List<Shell> shells = new List<Shell>();
   
@@ -64,8 +60,11 @@ public class Trigon : MonoBehaviour {
     }
   }
   
+  private void OnMouseDown() {
+    animator.SetBool("Selected", true);
+  }
+  
   private void OnMouseDrag() {
-    Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     if (!prevMousePos.Equals(Vector2.negativeInfinity)) {
       transform.position = transform.position + (Vector3)(mousePos - prevMousePos);
     }
@@ -73,12 +72,14 @@ public class Trigon : MonoBehaviour {
   }
   
   private void OnMouseUp() {
+    animator.SetBool("Selected", false);
     prevMousePos = Vector2.negativeInfinity;
     Vector3 dir = Vector3.zero;
     float ang = 0f;
     Vector2 piv = Vector2.zero;
     foreach (Linker linker in linkers) {
-      if (!linker.dir.Equals(Vector2.zero) && linker.ang != 0f) {
+      if (!linker.dir.Equals(Vector2.zero) || linker.ang != 0f) {
+        animator.SetTrigger("Attach");
         dir = linker.dir;
         ang = linker.ang;
         piv = linker.transform.position;
@@ -89,8 +90,12 @@ public class Trigon : MonoBehaviour {
   }
   
   private void Update() {
+    mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     foreach (Shell shell in shells) {
       shell.vis = health;
+    }
+    if (animator.GetBool("Selected")) {
+      transform.RotateAround(mousePos, Vector3.forward, Input.mouseScrollDelta.y * 30);
     }
   }
 }
