@@ -78,11 +78,13 @@ public class Trigon : MonoBehaviour {
     float ang = 0f;
     Vector2 piv = Vector2.zero;
     foreach (Linker linker in linkers) {
-      if (!linker.dir.Equals(Vector2.zero) || linker.ang != 0f) {
-        animator.SetTrigger("Attach");
-        dir = linker.dir;
-        ang = linker.ang;
-        piv = linker.transform.position;
+      if (!linker.dir.Equals(Vector2.negativeInfinity) || linker.ang != Mathf.NegativeInfinity) {
+        if (ang <= Mathf.Abs(linker.ang)){
+          animator.SetTrigger("Attach");
+          dir = linker.dir;
+          ang = linker.ang;
+          piv = linker.transform.position;
+        }
       }
     }
     transform.RotateAround(piv, Vector3.forward, ang);
