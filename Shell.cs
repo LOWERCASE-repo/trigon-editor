@@ -7,9 +7,6 @@ public class Shell : MonoBehaviour {
   private Vector3[] poss = new Vector3[2];
   private Color color;
   
-  // [SerializeField]
-  // private float width = 0.1f;
-  
   [Header("Debug")]
   [Range(0f, 1f)]
   public float vis = 1f;

@@ -6,9 +6,16 @@ public class Linker : MonoBehaviour {
   private Collider2D trigonCol;
   private Animator trigonAnimator;
   
+  private int index;
+  private Vector2[] triangle;
+  public void Init(int index, Vector2[] triangle) {
+    this.index = index;
+    this.triangle = triangle;
+  }
+  
   [Header("Debug")]
-  public int legA;
-  public int legB;
+  public float legA; // store other two points and calc dynam?
+  public float legB;
   public Vector2 dir = Vector2.zero;
   public float ang;
   
@@ -38,11 +45,26 @@ public class Linker : MonoBehaviour {
     ang = Mathf.NegativeInfinity;
   }
   
-  private void OnTriggerEnter2D() {
-    /*
-    validate a-b, b-a
+  private void Update() {
+    Vector2 pos = triangle[index];
+    if (index == 0) {
+      legA = -Vector2.SignedAngle(Vector2.up, triangle[1] - triangle[index]);
+      legB = -Vector2.SignedAngle(Vector2.up, triangle[2] - triangle[index]);
+    }
+    if (index == 1) {
+      legA = -Vector2.SignedAngle(Vector2.up, triangle[2] - triangle[index]);
+      legB = -Vector2.SignedAngle(Vector2.up, triangle[0] - triangle[index]);
+    }
+    if (index == 2) {
+      legA = -Vector2.SignedAngle(Vector2.up, triangle[0] - triangle[index]);
+      legB = -Vector2.SignedAngle(Vector2.up, triangle[1] - triangle[index]);
+    }
     
-    */
+    Debug.Log(legA + " " + legB);
+    Debug.Log(triangle[0] + " " + triangle[1] + " " + triangle[2]);
+  }
+  
+  private void OnTriggerEnter2D() {
   }
   
   private void OnTriggerStay2D(Collider2D col) {
