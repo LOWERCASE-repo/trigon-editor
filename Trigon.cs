@@ -26,60 +26,38 @@ public class Trigon : MonoBehaviour {
   [SerializeField]
   private List<Shell> shells = new List<Shell>();
   
-  // private void AddLinker(int vertex, int legA, int legB) {
-  //   linker = Instantiate(linker, triangle[vertex], Quaternion.identity, transform);
-  //   linker.legA = legA;
-  //   linker.legB = legB;
-  //   linkers.Add(linker);
-  // }
-  
   private void AddLinker(int index) {
     linker = Instantiate(linker, triangle[index], Quaternion.identity, transform);
     linker.Init(index, triangle);
+    linker.UpdateLegs();
     linkers.Add(linker);
   }
   
-  // TODO go back to three v2s
-  private void SetTriangle(Vector2[] vertices) {
-    System.Array.Copy(vertices, 0, triangle, 0, 3);
+  private void UpdateTriangle() {
     collider.points = triangle;
     mesh.vertices = System.Array.ConvertAll<Vector2, Vector3>(triangle, v => v);
     filter.mesh = mesh;
+    foreach (Linker linker in linkers) {
+      linker.UpdateLegs();
+    }
   }
   
   private void Awake() {
     
-    // triangle = new Vector2[] {
-    //   new Vector2(-1f / 3f, sqrtThree * 2f / 3f),
-    //   new Vector2(2f / 3f, -sqrtThree / 3f),
-    //   new Vector2(-1f / 3f, -sqrtThree / 3f)
-    // };
-    
-    // Debug.Log(-Vector2.SignedAngle(Vector2.up, -triangle[2] + triangle[1]));
-    // Debug.Log(-Vector2.SignedAngle(Vector2.up, -triangle[2] + triangle[0]));
-    
-    // collider.points = triangle;
-    // mesh.vertices = System.Array.ConvertAll<Vector2, Vector3>(triangle, v => v);
-    // filter.mesh = mesh;
-    
-    triangle = new Vector2[3];
     float sqrtThree = Mathf.Sqrt(3f);
-    mesh = new Mesh();
-    SetTriangle(new Vector2[] {
+    triangle = new Vector2[] {
       new Vector2(-1f / 3f, sqrtThree * 2f / 3f),
       new Vector2(2f / 3f, -sqrtThree / 3f),
       new Vector2(-1f / 3f, -sqrtThree / 3f)
-    });
+    };
+    mesh = new Mesh();
+    UpdateTriangle();
     mesh.triangles = new int[] { 0, 1, 2 };
     
     for (int i = 0; i < triangle.Length; i++) {
       AddLinker(i);
       // AddShell(i);
     }
-    
-    // AddLinker(0, 150, 180);
-    // AddLinker(1, 270, 330);
-    // AddLinker(2, 0, 90);
     
     for (int i = 0; i < shells.Count; i++) {
       shells[i].posA = triangle[i]; // TODO shell dynam
@@ -129,10 +107,8 @@ public class Trigon : MonoBehaviour {
       // if getbutton flip, flip x on centroid y, update linker legs
       // dynamic linker legs? means no checking transform anymore
       if (Input.GetButton("Flip")) {
-        
-        SetTriangle(new Vector2[] {
-          Vector2.zero, Vector2.up, Vector2.right
-          });
+        triangle = new Vector2[] {Vector2.zero, Vector2.up, Vector2.left};
+        UpdateTriangle();
       }
     }
   }

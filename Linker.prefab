@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2874d69f4b0a3f34391581f2ed948ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  debugPoint: {fileID: 6070719688896410789, guid: 80b895b97e3649b48b6f5a56b06aee38,
+    type: 3}
   legA: 0
   legB: 0
   dir: {x: 0, y: 0}
