@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 
 public class Trigon : MonoBehaviour {
   
@@ -8,7 +9,8 @@ public class Trigon : MonoBehaviour {
   public Vector2[] triangle;
   private Mesh mesh;
   
-  private HashSet<Linker> linkers = new HashSet<Linker>();
+  private Linker[] linkers = new Linker[3];
+  private HashSet<Link> links = new HashSet<Link>();
   private Vector2 prevMousePos = Vector2.negativeInfinity;
   private Vector2 mousePos;
   
@@ -27,23 +29,28 @@ public class Trigon : MonoBehaviour {
   private List<Shell> shells = new List<Shell>();
   
   private void AddLinker(int index) {
-    linker = Instantiate(linker, triangle[index], Quaternion.identity, transform);
-    linker.Init(index, triangle);
-    linker.UpdateLegs();
-    linkers.Add(linker);
+    Linker linker = Instantiate(this.linker, triangle[index], Quaternion.identity, transform);
+    linkers[index] = linker;
+  }
+  
+  private void InitLinker(int index) {
+    Transform legA = linkers[(index + 1) % linkers.Length].transform;
+    Transform legB = linkers[(index + 2) % linkers.Length].transform;
+    linkers[index].Init(links, legA, legB);
+    linkers[index].UpdateLegs();
   }
   
   private void UpdateTriangle() {
     collider.points = triangle;
     mesh.vertices = System.Array.ConvertAll<Vector2, Vector3>(triangle, v => v);
     filter.mesh = mesh;
-    foreach (Linker linker in linkers) {
-      linker.UpdateLegs();
-    }
+    // foreach (Linker linker in linkers) {
+    //   linker.UpdateLegs();
+    // }
   }
   
   private void Awake() {
-    
+    linkers = new Linker[3];
     float sqrtThree = Mathf.Sqrt(3f);
     triangle = new Vector2[] {
       new Vector2(-1f / 3f, sqrtThree * 2f / 3f),
@@ -51,18 +58,18 @@ public class Trigon : MonoBehaviour {
       new Vector2(-1f / 3f, -sqrtThree / 3f)
     };
     mesh = new Mesh();
-    UpdateTriangle();
+    mesh.vertices = System.Array.ConvertAll<Vector2, Vector3>(triangle, v => v);
     mesh.triangles = new int[] { 0, 1, 2 };
     
     for (int i = 0; i < triangle.Length; i++) {
       AddLinker(i);
-      // AddShell(i);
-    }
-    
-    for (int i = 0; i < shells.Count; i++) {
       shells[i].posA = triangle[i]; // TODO shell dynam
       shells[i].posB = triangle[(i + 1) % shells.Count];
     }
+    for (int i = 0; i < triangle.Length; i++) {
+      InitLinker(i);
+    }
+    UpdateTriangle();
   }
   
   private void OnMouseDown() {
@@ -70,6 +77,8 @@ public class Trigon : MonoBehaviour {
   }
   
   private void OnMouseDrag() {
+    Debug.Log(links.Count);
+    
     if (!prevMousePos.Equals(Vector2.negativeInfinity)) {
       transform.position = transform.position + (Vector3)(mousePos - prevMousePos);
     }
@@ -80,21 +89,17 @@ public class Trigon : MonoBehaviour {
     animator.SetBool("Selected", false);
     prevMousePos = Vector2.negativeInfinity;
     
-    Vector3 dir = Vector3.zero;
-    float ang = 0f;
-    Vector2 piv = Vector2.zero;
-    foreach (Linker linker in linkers) {
-      if (!linker.dir.Equals(Vector2.negativeInfinity) || linker.ang != Mathf.NegativeInfinity) {
-        if (ang <= Mathf.Abs(linker.ang)){
-          animator.SetTrigger("Attach");
-          dir = linker.dir;
-          ang = linker.ang;
-          piv = linker.transform.position;
-        }
-      }
+    Link link = links
+    .OrderBy(t => Mathf.Abs(t.rot))
+    .FirstOrDefault();
+    
+    if (link != null) {
+      animator.SetTrigger("Attach");
+      Vector3 dir = link.target.position - link.linker.position;
+      float rot = link.rot;
+      transform.RotateAround(link.linker.position, Vector3.forward, rot);
+      transform.position += dir;
     }
-    transform.RotateAround(piv, Vector3.forward, ang);
-    transform.position += dir;
   }
   
   private void Update() {
@@ -104,8 +109,6 @@ public class Trigon : MonoBehaviour {
     }
     if (animator.GetBool("Selected")) {
       transform.RotateAround(mousePos, Vector3.forward, Input.mouseScrollDelta.y * 30);
-      // if getbutton flip, flip x on centroid y, update linker legs
-      // dynamic linker legs? means no checking transform anymore
       if (Input.GetButton("Flip")) {
         triangle = new Vector2[] {Vector2.zero, Vector2.up, Vector2.left};
         UpdateTriangle();
