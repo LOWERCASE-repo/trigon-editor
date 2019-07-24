@@ -10,23 +10,27 @@ public class Shell : MonoBehaviour {
   [Header("Debug")]
   [Range(0f, 1f)]
   public float vis = 1f;
-  public Vector2 posA;
-  public Vector2 posB;
+  public Vector2 tetherA;
+  public Vector2 tetherB;
   
   [Header("Components")]
   [SerializeField]
   private LineRenderer renderer;
   
+  public void Init(Vector2 tetherA, Vector2 tetherB) {
+    this.tetherA = tetherA;
+    this.tetherB = tetherB;
+  }
+  
   private void Update() {
     posMid = (poss[0] + poss[1]) / 2f;
-    poss[0] = Vector2.Lerp(posMid, posA, vis);
-    poss[1] = Vector2.Lerp(posMid, posB, vis);
+    poss[0] = Vector2.Lerp(posMid, tetherA, vis);
+    poss[1] = Vector2.Lerp(posMid, tetherB, vis);
     renderer.SetPositions(poss);
     
     color = renderer.startColor;
     color.a = Mathf.Sqrt(vis);
     renderer.startColor = color;
     renderer.endColor = renderer.startColor;
-    // renderer.startWidth = width * Mathf.Sqrt(vis);
   }
 }

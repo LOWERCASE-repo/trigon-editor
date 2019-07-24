@@ -6,10 +6,8 @@ public class Trigon : MonoBehaviour {
   
   [Range(0f, 1f)]
   public float health;
-  public Vector2[] triangle;
+  private Vector2[] triangle;
   private Mesh mesh;
-  
-  private Linker[] linkers = new Linker[3];
   private HashSet<Link> links = new HashSet<Link>();
   private Vector2 prevMousePos = Vector2.negativeInfinity;
   private Vector2 mousePos;
@@ -26,50 +24,38 @@ public class Trigon : MonoBehaviour {
   [SerializeField]
   private Animator animator;
   [SerializeField]
-  private List<Shell> shells = new List<Shell>();
+  private Linker[] linkers;
+  [SerializeField]
+  private Shell[] shells;
   
-  private void AddLinker(int index) {
-    Linker linker = Instantiate(this.linker, triangle[index], Quaternion.identity, transform);
-    linkers[index] = linker;
-  }
-  
-  private void InitLinker(int index) {
-    Transform legA = linkers[(index + 1) % linkers.Length].transform;
-    Transform legB = linkers[(index + 2) % linkers.Length].transform;
-    linkers[index].Init(links, legA, legB);
-    linkers[index].UpdateLegs();
-  }
-  
-  private void UpdateTriangle() {
-    collider.points = triangle;
+  private void UpdateMesh() {
+    for (int i = 0; i < linkers.Length; i++) {
+      linkers[i].transform.position = triangle[i];
+    }
     mesh.vertices = System.Array.ConvertAll<Vector2, Vector3>(triangle, v => v);
+    mesh.triangles = new int[] { 0, 1, 2 };
     filter.mesh = mesh;
-    // foreach (Linker linker in linkers) {
-    //   linker.UpdateLegs();
-    // }
+    collider.points = triangle;
   }
   
-  private void Awake() {
-    linkers = new Linker[3];
+  private void Start() {
     float sqrtThree = Mathf.Sqrt(3f);
     triangle = new Vector2[] {
       new Vector2(-1f / 3f, sqrtThree * 2f / 3f),
       new Vector2(2f / 3f, -sqrtThree / 3f),
       new Vector2(-1f / 3f, -sqrtThree / 3f)
     };
+    
     mesh = new Mesh();
-    mesh.vertices = System.Array.ConvertAll<Vector2, Vector3>(triangle, v => v);
-    mesh.triangles = new int[] { 0, 1, 2 };
+    UpdateMesh();
     
     for (int i = 0; i < triangle.Length; i++) {
-      AddLinker(i);
-      shells[i].posA = triangle[i]; // TODO shell dynam
-      shells[i].posB = triangle[(i + 1) % shells.Count];
+      int indexA = (i + 1) % linkers.Length;
+      int indexB = (i + 2) % linkers.Length;
+      linkers[i].Init(links, linkers[indexA].transform, linkers[indexB].transform);
+      shells[i].Init(triangle[indexA], triangle[indexB]);
+      linkers[i].UpdateLegs();
     }
-    for (int i = 0; i < triangle.Length; i++) {
-      InitLinker(i);
-    }
-    UpdateTriangle();
   }
   
   private void OnMouseDown() {
@@ -77,8 +63,6 @@ public class Trigon : MonoBehaviour {
   }
   
   private void OnMouseDrag() {
-    Debug.Log(links.Count);
-    
     if (!prevMousePos.Equals(Vector2.negativeInfinity)) {
       transform.position = transform.position + (Vector3)(mousePos - prevMousePos);
     }
@@ -108,10 +92,22 @@ public class Trigon : MonoBehaviour {
       shell.vis = health;
     }
     if (animator.GetBool("Selected")) {
-      transform.RotateAround(mousePos, Vector3.forward, Input.mouseScrollDelta.y * 30);
-      if (Input.GetButton("Flip")) {
-        triangle = new Vector2[] {Vector2.zero, Vector2.up, Vector2.left};
-        UpdateTriangle();
+      Vector2 scroll = Input.mouseScrollDelta;
+      if (!scroll.Equals(Vector2.zero)) {
+        links.Clear();
+        transform.RotateAround(mousePos, Vector3.forward, Input.mouseScrollDelta.y * 30f);
+      }
+      if (Input.GetButtonDown("Flip")) {
+        transform.RotateAround(transform.position, Vector3.forward, -transform.rotation.eulerAngles.z * 2f);
+        for (int i = 0; i < triangle.Length; i++) {
+          triangle[i].x *= -1f;
+          Debug.Log(triangle[i].x);
+        }
+        Vector2 temp = triangle[1];
+        triangle[1] = triangle[2];
+        triangle[2] = temp;
+        Debug.Log("Flip");
+        UpdateMesh();
       }
     }
   }

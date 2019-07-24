@@ -1,0 +1,9 @@
+
+editor
+  overlap prevention
+  flipping and scaling
+  saving and loading
+  colours!
+
+components
+levels

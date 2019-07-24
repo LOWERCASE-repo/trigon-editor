@@ -1,0 +1,72 @@
+crystal themed bubble tanks
+
+
+reflect, phase, sine damage mod, thorns, ammo conversion
+
+--- archetypes ---
+
+spammers
+  saturate the field with bullets
+absorbers
+  likes getting hit
+gimmicks
+  jams absorbers
+
+--- components ---
+
+automatics
+
+  basic (1)
+    unit weapon
+
+  heavy (2)
+    + hitbox
+    - rate
+    - speed
+
+  rapid (2)
+    + rate
+    - accuracy
+
+  spread (2)
+    + burst
+    - spread
+
+  smart (3)
+    + retargets nearby enemies
+    * or make it homing and lose homing abilities after getting too close
+
+  absorbing (6)
+    + destroys nearby bullets
+    + damage equal to absorbed bullets
+    + homing
+    - no innate damage
+  
+passives
+
+--- animations ---
+
+spawn
+  symmetrical triangle fade growth from circumcentre
+  edge fade growth
+
+death
+  staggered edge shrink fade
+  circumcircle flash fade followed by random flash fades
+  triangles moved to world space and circumcirc point effector blast
+  staggered triangle shrink fade
+  ripple effect?
+
+--- interface ---
+
+editor
+  istrolid part selection
+  reassembly ship manip
+    zoom, pan
+    hex grid blur
+  ship in the center
+    
+
+--- misc ---
+
+cap turn speed at 360d/s world
