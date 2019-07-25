@@ -14,8 +14,6 @@ public class Trigon : MonoBehaviour {
   
   [Header("Components")]
   [SerializeField]
-  private Linker linker;
-  [SerializeField]
   private MeshFilter filter;
   [SerializeField]
   private MeshRenderer renderer;
@@ -23,6 +21,8 @@ public class Trigon : MonoBehaviour {
   private PolygonCollider2D collider;
   [SerializeField]
   private Animator animator;
+  
+  [Header("Children")]
   [SerializeField]
   private Linker[] linkers;
   [SerializeField]

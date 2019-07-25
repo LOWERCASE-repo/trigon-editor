@@ -55,7 +55,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  linker: {fileID: 6597756358467294243, guid: 815415d8129b2e547b67c2cc8ab34e4e, type: 3}
   filter: {fileID: 6198480037271857362}
   renderer: {fileID: 6198480037271857363}
   collider: {fileID: 6198480037271857360}
