@@ -23,6 +23,7 @@ public class Shell : MonoBehaviour {
   }
   
   private void Update() {
+    // TODO pass in tri array and index
     posMid = (poss[0] + poss[1]) / 2f;
     poss[0] = Vector2.Lerp(posMid, tetherA, vis);
     poss[1] = Vector2.Lerp(posMid, tetherB, vis);

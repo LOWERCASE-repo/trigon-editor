@@ -30,7 +30,9 @@ public class Trigon : MonoBehaviour {
   
   private void UpdateMesh() {
     for (int i = 0; i < linkers.Length; i++) {
-      linkers[i].transform.position = triangle[i];
+      Quaternion rot = Quaternion.AngleAxis(transform.rotation.eulerAngles.z, Vector3.forward);
+      linkers[i].transform.position = transform.position + rot * triangle[i];
+      shells[i].Init(triangle[(i + 1) % linkers.Length], triangle[(i + 2) % linkers.Length]);
     }
     mesh.vertices = System.Array.ConvertAll<Vector2, Vector3>(triangle, v => v);
     mesh.triangles = new int[] { 0, 1, 2 };
@@ -101,12 +103,11 @@ public class Trigon : MonoBehaviour {
         transform.RotateAround(transform.position, Vector3.forward, -transform.rotation.eulerAngles.z * 2f);
         for (int i = 0; i < triangle.Length; i++) {
           triangle[i].x *= -1f;
-          Debug.Log(triangle[i].x);
         }
         Vector2 temp = triangle[1];
         triangle[1] = triangle[2];
         triangle[2] = temp;
-        Debug.Log("Flip");
+        Debug.Log("Flip" + triangle[0] + " " + triangle[1]);
         UpdateMesh();
       }
     }

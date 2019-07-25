@@ -1,3 +1,4 @@
 health : max health, so tank viable
 parts cant be destroyed individually, so make as pretty as you like
 max health : convex hull, so dont worry about compactness
+explain weird triangle scaling
