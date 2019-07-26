@@ -69,10 +69,12 @@ public class Trigon : MonoBehaviour {
   }
   
   private void OnMouseDown() {
+    Debug.Log("TAHOS");
     animator.SetBool("Selected", true);
   }
   
   private void OnMouseDrag() {
+    Debug.Log("TAHOwhtS");
     if (!prevMousePos.Equals(Vector2.negativeInfinity)) {
       transform.position = transform.position + (Vector3)(mousePos - prevMousePos);
     }
@@ -95,8 +97,7 @@ public class Trigon : MonoBehaviour {
       transform.position += dir;
       if (link.target.parent != null) {
         Debug.Log("attaching to ship");
-        // Destroy(rb);
-        // collider.attachedRigidbody = link.target.parent.GetComponent<Rigidbody2D>();
+        transform.parent = link.target.parent;
       }
     }
   }

@@ -60,4 +60,8 @@ public class Ship : MonoBehaviour {
     if (Input.GetButtonDown("Save")) Save("Shoom");
     if (!rb.velocity.Equals(Vector2.zero)) Rotate(rb.velocity);
   }
+  
+  private void OnMouseDown() {
+    // Debug.Log("shif");
+  }
 }
