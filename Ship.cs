@@ -7,8 +7,6 @@ public class Ship : MonoBehaviour {
   [SerializeField]
   protected float speed;
   [SerializeField]
-  protected float turnSpeed;
-  [SerializeField]
   protected float acc;
   
   private Vector2 mousePos;
@@ -17,31 +15,41 @@ public class Ship : MonoBehaviour {
   [SerializeField]
   private Rigidbody2D rb;
   
+  // holy grail methods
   private void Move(Vector2 pos) {
     rb.AddForce((pos - rb.position).normalized * acc);
-    Debug.Log(rb.velocity.magnitude);
-    
-    float ang = Vector2.SignedAngle(Vector2.up, rb.velocity);
-    // float turnSpeed = speed; //  / Mathf.PI / 2f
-    float turnDir = Mathf.Clamp(Mathf.DeltaAngle(ang, rb.rotation), 0f, turnSpeed);
-    float turnAcc = turnDir * Mathf.Max(turnSpeed - rb.angularVelocity, 0f);
-    rb.AddTorque(turnAcc);
-    
-    // ship should turn to face pos
-    // turn speed? impact on mvmt?
+  }
+  
+  private void Rotate(Vector2 dir) {
+    float ang = Vector2.SignedAngle(Vector2.up, dir);
+    float pol = 1f - Mathf.Abs(ang) / 180f;
+    rb.MoveRotation(Mathf.LerpAngle(rb.rotation, ang, pol));
+    // TODO mvmt rotation rel mass
+  }
+  
+  private void Center() {
+    Vector3 centroid = Vector3.zero;
+    for (int i = 0; i < transform.childCount; i++) {
+      centroid += transform.GetChild(i).transform.position;
+    }
+    centroid /= transform.childCount;
+    for (int i = 0; i < transform.childCount; i++) {
+      transform.GetChild(i).transform.position -= centroid;
+    }
+    // dont move transform, otherwise teleport exploit
   }
   
   private void Start() {
-    rb.drag = speed / (speed + acc);
-    rb.angularDrag = acc / speed;
+    rb.drag = acc / speed;
   }
   
   private void Update() {
     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    Debug.DrawLine(rb.position, mousePos);
   }
   
   private void FixedUpdate() {
-    Move(mousePos);
+    if (Input.GetButton("Move")) Move(mousePos);
+    if (Input.GetButtonDown("Save")) Center();
+    if (!rb.velocity.Equals(Vector2.zero)) Rotate(rb.velocity);
   }
 }
