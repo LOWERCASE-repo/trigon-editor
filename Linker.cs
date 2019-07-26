@@ -3,15 +3,17 @@ using System.Collections.Generic;
 
 public class Linker : MonoBehaviour {
   
-  private Animator trigonAnimator;
-  private HashSet<Link> links;
-  
-  private Transform legA;
-  private Transform legB;
-  
   [Header("Debug")]
   public float rotA;
   public float rotB;
+  [SerializeField]
+  private Animator trigonAnimator;
+  [SerializeField]
+  private HashSet<Link> links;
+  [SerializeField]
+  private Transform legA;
+  [SerializeField]
+  private Transform legB;
   
   public void Init(HashSet<Link> links, Transform legA, Transform legB) {
     this.links = links;

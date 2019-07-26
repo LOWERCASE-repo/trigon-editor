@@ -53,6 +53,7 @@ public class Trigon : MonoBehaviour {
   }
   
   private void Start() {
+    Debug.Log(filter.mesh);
     float sqrtThree = Mathf.Sqrt(3f);
     triangle = new Vector2[] {
       new Vector2(-1f / 3f, sqrtThree * 2f / 3f),
