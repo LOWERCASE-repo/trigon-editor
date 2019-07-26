@@ -1,6 +1,8 @@
 using UnityEngine;
+using UnityEditor;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 
 public class Ship : MonoBehaviour {
   
@@ -39,6 +41,13 @@ public class Ship : MonoBehaviour {
     // dont move transform, otherwise teleport exploit
   }
   
+  private void Save(string name) {
+    Center();
+    char sep = Path.DirectorySeparatorChar;
+    string path = "Assets" + sep + "Ships" + sep + name + ".prefab";
+    PrefabUtility.SaveAsPrefabAsset(gameObject, path);
+  }
+  
   private void Start() {
     rb.drag = acc / speed;
   }
@@ -49,7 +58,7 @@ public class Ship : MonoBehaviour {
   
   private void FixedUpdate() {
     if (Input.GetButton("Move")) Move(mousePos);
-    if (Input.GetButtonDown("Save")) Center();
+    if (Input.GetButtonDown("Save")) Save("Shoom");
     if (!rb.velocity.Equals(Vector2.zero)) Rotate(rb.velocity);
   }
 }

@@ -40,13 +40,25 @@ public class Trigon : MonoBehaviour {
     collider.points = triangle;
   }
   
+  private void Flip() {
+    transform.RotateAround(transform.position, Vector3.forward, -transform.rotation.eulerAngles.z * 2f);
+    for (int i = 0; i < triangle.Length; i++) {
+      triangle[i].x *= -1f;
+    }
+    Vector2 temp = triangle[1];
+    triangle[1] = triangle[2];
+    triangle[2] = temp;
+    Debug.Log("Flip" + triangle[0] + " " + triangle[1]);
+    UpdateMesh();
+  }
+  
   private void Start() {
     float sqrtThree = Mathf.Sqrt(3f);
     triangle = new Vector2[] {
       new Vector2(-1f / 3f, sqrtThree * 2f / 3f),
       new Vector2(2f / 3f, -sqrtThree / 3f),
       new Vector2(-1f / 3f, -sqrtThree / 3f)
-    };
+    }; // TODO store both for nicer swapping
     
     mesh = new Mesh();
     UpdateMesh();
@@ -99,17 +111,7 @@ public class Trigon : MonoBehaviour {
         links.Clear();
         transform.RotateAround(mousePos, Vector3.forward, Input.mouseScrollDelta.y * 30f);
       }
-      if (Input.GetButtonDown("Flip")) {
-        transform.RotateAround(transform.position, Vector3.forward, -transform.rotation.eulerAngles.z * 2f);
-        for (int i = 0; i < triangle.Length; i++) {
-          triangle[i].x *= -1f;
-        }
-        Vector2 temp = triangle[1];
-        triangle[1] = triangle[2];
-        triangle[2] = temp;
-        Debug.Log("Flip" + triangle[0] + " " + triangle[1]);
-        UpdateMesh();
-      }
+      if (Input.GetButtonDown("Flip")) Flip();
     }
   }
 }

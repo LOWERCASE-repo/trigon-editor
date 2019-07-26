@@ -3,9 +3,6 @@ using System.Collections.Generic;
 
 public class Linker : MonoBehaviour {
   
-  [SerializeField]
-  private GameObject debugPoint;
-  
   private Animator trigonAnimator;
   private HashSet<Link> links;
   
@@ -45,8 +42,9 @@ public class Linker : MonoBehaviour {
   
   private void OnTriggerStay2D(Collider2D col) {
     UpdateLegs();
-    if (!trigonAnimator.GetBool("Selected")) return;
-    links.Add(GetLink(col));
+    if (trigonAnimator.GetBool("Selected")) {
+      links.Add(GetLink(col));
+    }
   }
   
   private void OnTriggerExit2D(Collider2D col) {
