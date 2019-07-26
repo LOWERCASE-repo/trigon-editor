@@ -3,23 +3,21 @@ using System.Collections.Generic;
 
 public class Linker : MonoBehaviour {
   
+  private HashSet<Link> links;
+  
   [Header("Debug")]
   public float rotA;
   public float rotB;
+  
+  [Header("Components")]
+  [SerializeField]
+  private Collider2D collider;
   [SerializeField]
   private Animator trigonAnimator;
-  [SerializeField]
-  private HashSet<Link> links;
   [SerializeField]
   private Transform legA;
   [SerializeField]
   private Transform legB;
-  
-  public void Init(HashSet<Link> links, Transform legA, Transform legB) {
-    this.links = links;
-    this.legA = legA;
-    this.legB = legB;
-  }
   
   public void UpdateLegs() {
     rotA = -Vector2.SignedAngle(Vector2.up, legA.position - transform.position);
@@ -27,6 +25,11 @@ public class Linker : MonoBehaviour {
     rotA = Mathf.Round(rotA);
     rotB = Mathf.Round(rotB);
     // Debug.Log(rotA + " " + rotB);
+  }
+  
+  public void Init(HashSet<Link> links) {
+    this.links = links;
+    UpdateLegs();
   }
   
   private Link GetLink(Collider2D col) {

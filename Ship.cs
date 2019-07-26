@@ -24,7 +24,7 @@ public class Ship : MonoBehaviour {
   
   private void Rotate(Vector2 dir) {
     float ang = Vector2.SignedAngle(Vector2.up, dir);
-    float pol = 1f - Mathf.Abs(ang) / 180f;
+    float pol = 1f - Mathf.Abs(ang) / 360f;
     rb.MoveRotation(Mathf.LerpAngle(rb.rotation, ang, pol));
     // TODO mvmt rotation rel mass
   }
@@ -38,10 +38,9 @@ public class Ship : MonoBehaviour {
     for (int i = 0; i < transform.childCount; i++) {
       transform.GetChild(i).transform.position -= centroid;
     }
-    // dont move transform, otherwise teleport exploit
   }
   
-  private void Save(string name) { // TODO TODO TODO
+  private void Save(string name) {
     Center();
     char sep = Path.DirectorySeparatorChar;
     string path = "Assets" + sep + "Ships" + sep + name + ".prefab";

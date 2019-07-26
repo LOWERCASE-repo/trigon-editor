@@ -6,8 +6,7 @@ public class Trigon : MonoBehaviour {
   
   [Range(0f, 1f)]
   public float health;
-  private Vector2[] triangle;
-  private Mesh mesh;
+  
   private HashSet<Link> links = new HashSet<Link>();
   private Vector2 prevMousePos = Vector2.negativeInfinity;
   private Vector2 mousePos;
@@ -27,50 +26,46 @@ public class Trigon : MonoBehaviour {
   private Linker[] linkers;
   [SerializeField]
   private Shell[] shells;
+  [SerializeField]
+  private GameObject mirrored;
+  
+  [Header("Prefabs")]
+  [SerializeField]
+  private Mesh normal;
+  [SerializeField]
+  private Mesh mirror;
   
   private void UpdateMesh() {
+    Vector2[] triangle = System.Array.ConvertAll<Vector3, Vector2>(filter.mesh.vertices, v => v);
     for (int i = 0; i < linkers.Length; i++) {
       Quaternion rot = Quaternion.AngleAxis(transform.rotation.eulerAngles.z, Vector3.forward);
       linkers[i].transform.position = transform.position + rot * triangle[i];
       shells[i].Init(triangle[(i + 1) % linkers.Length], triangle[(i + 2) % linkers.Length]);
     }
-    mesh.vertices = System.Array.ConvertAll<Vector2, Vector3>(triangle, v => v);
-    mesh.triangles = new int[] { 0, 1, 2 };
-    filter.mesh = mesh;
     collider.points = triangle;
+    filter.mesh.UploadMeshData(false);
   }
   
-  private void Flip() {
-    transform.RotateAround(transform.position, Vector3.forward, -transform.rotation.eulerAngles.z * 2f);
-    for (int i = 0; i < triangle.Length; i++) {
-      triangle[i].x *= -1f;
+  private void Mirror() {
+    mirrored.SetActive(!mirrored.activeSelf);
+    if (mirrored.activeSelf) {
+      filter.mesh = mirror;
+    } else {
+      filter.mesh = normal;
     }
-    Vector2 temp = triangle[1];
-    triangle[1] = triangle[2];
-    triangle[2] = temp;
-    Debug.Log("Flip" + triangle[0] + " " + triangle[1]);
     UpdateMesh();
   }
   
   private void Start() {
-    Debug.Log(filter.mesh);
-    float sqrtThree = Mathf.Sqrt(3f);
-    triangle = new Vector2[] {
-      new Vector2(-1f / 3f, sqrtThree * 2f / 3f),
-      new Vector2(2f / 3f, -sqrtThree / 3f),
-      new Vector2(-1f / 3f, -sqrtThree / 3f)
-    }; // TODO store both for nicer swapping
-    
-    mesh = new Mesh();
-    UpdateMesh();
-    
-    for (int i = 0; i < triangle.Length; i++) {
-      int indexA = (i + 1) % linkers.Length;
-      int indexB = (i + 2) % linkers.Length;
-      linkers[i].Init(links, linkers[indexA].transform, linkers[indexB].transform);
-      shells[i].Init(triangle[indexA], triangle[indexB]);
-      linkers[i].UpdateLegs();
+    for (int i = 0; i < 3; i++) {
+      linkers[i].Init(links);
     }
+    if (mirrored.activeSelf) {
+      filter.mesh = mirror;
+    } else {
+      filter.mesh = normal;
+    }
+    UpdateMesh();
   }
   
   private void OnMouseDown() {
@@ -98,6 +93,11 @@ public class Trigon : MonoBehaviour {
       float rot = link.rot;
       transform.RotateAround(link.linker.position, Vector3.forward, rot);
       transform.position += dir;
+      if (link.target.parent != null) {
+        Debug.Log("attaching to ship");
+        // Destroy(rb);
+        // collider.attachedRigidbody = link.target.parent.GetComponent<Rigidbody2D>();
+      }
     }
   }
   
@@ -112,7 +112,7 @@ public class Trigon : MonoBehaviour {
         links.Clear();
         transform.RotateAround(mousePos, Vector3.forward, Input.mouseScrollDelta.y * 30f);
       }
-      if (Input.GetButtonDown("Flip")) Flip();
+      if (Input.GetButtonDown("Flip")) Mirror();
     }
   }
 }
