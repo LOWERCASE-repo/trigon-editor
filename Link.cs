@@ -14,14 +14,14 @@ public class Link {
   public override bool Equals(object obj) {
     Link link = (Link)obj;
     return link != null
-      && this.linker == link.linker
-      && this.target == link.target
-      && this.rot == link.rot;
+    && linker == link.linker
+    && target == link.target
+    && rot == link.rot;
   }
   
   public override int GetHashCode() {
-    return this.linker.GetHashCode()
-      ^ this.target.GetHashCode()
-      ^ this.rot.GetHashCode();
+    return linker.GetHashCode()
+    ^ target.GetHashCode()
+    ^ rot.GetHashCode();
   }
 }

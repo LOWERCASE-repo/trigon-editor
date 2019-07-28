@@ -35,44 +35,30 @@ public class Trigon : MonoBehaviour {
   [SerializeField]
   private Shell[] shells;
   [SerializeField]
-  private GameObject mirrored;
+  private GameObject status;
   
-  [Header("Prefabs")] // TODO make arrays of resized meshes
-  // switch each side into 1-rt3-2
+  [Header("Prefabs")]
   [SerializeField]
-  private Mesh normal;
+  private Mesh[] normals;
   [SerializeField]
-  private Mesh mirror;
+  private Mesh[] mirrors;
   
   private void UpdateMesh() {
+    int index = (int)status.transform.position.x; // PrefabUtility doesnt support SerializeField
+    filter.mesh = !status.activeSelf ? normals[index] : mirrors[index];
     Vector2[] triangle = System.Array.ConvertAll<Vector3, Vector2>(filter.mesh.vertices, v => v);
     for (int i = 0; i < linkers.Length; i++) {
       Quaternion rot = Quaternion.AngleAxis(transform.rotation.eulerAngles.z, Vector3.forward);
       linkers[i].transform.position = transform.position + rot * triangle[i];
+      // TODO linkers[i].transform.localPosition
       shells[i].Init(triangle[(i + 1) % linkers.Length], triangle[(i + 2) % linkers.Length]);
     }
     collider.points = triangle;
-    filter.mesh.UploadMeshData(false);
-  }
-  
-  private void Mirror() {
-    mirrored.SetActive(!mirrored.activeSelf);
-    if (mirrored.activeSelf) {
-      filter.mesh = mirror;
-    } else {
-      filter.mesh = normal;
-    }
-    UpdateMesh();
   }
   
   private void Start() {
     for (int i = 0; i < 3; i++) {
       linkers[i].Init(links);
-    }
-    if (mirrored.activeSelf) {
-      filter.mesh = mirror;
-    } else {
-      filter.mesh = normal;
     }
     UpdateMesh();
   }
@@ -122,7 +108,19 @@ public class Trigon : MonoBehaviour {
         links.Clear();
         transform.RotateAround(mousePos, Vector3.forward, Input.mouseScrollDelta.y * 30f);
       }
-      if (Input.GetButtonDown("Flip")) Mirror();
+      if (Input.GetButtonDown("Flip")) {
+        status.SetActive(!status.activeSelf);
+        UpdateMesh();
+      }
+      if (Input.GetButtonDown("Resize")) {
+        Debug.Log(Input.GetAxisRaw("Resize"));
+        int index = (int)status.transform.position.x;
+        index += (int)Input.GetAxisRaw("Resize") + normals.Length;
+        index %= normals.Length;
+        Debug.Log(index);
+        status.transform.localPosition = new Vector3(index, 0f, 0f);
+        UpdateMesh();
+      }
     }
   }
 }
