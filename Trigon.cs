@@ -6,6 +6,14 @@ public class Trigon : MonoBehaviour {
   
   [Range(0f, 1f)]
   public float health;
+  // public Color shellColor {
+  //   set {
+  //     foreach (Shell shell in shells) {
+  //       shell.
+  //     }
+  //   }
+  // }
+  // public Color trigonColor;
   
   private HashSet<Link> links = new HashSet<Link>();
   private Vector2 prevMousePos = Vector2.negativeInfinity;
@@ -29,7 +37,8 @@ public class Trigon : MonoBehaviour {
   [SerializeField]
   private GameObject mirrored;
   
-  [Header("Prefabs")]
+  [Header("Prefabs")] // TODO make arrays of resized meshes
+  // switch each side into 1-rt3-2
   [SerializeField]
   private Mesh normal;
   [SerializeField]
@@ -73,7 +82,7 @@ public class Trigon : MonoBehaviour {
     animator.SetBool("Selected", true);
   }
   
-  private void OnMouseDrag() {
+  private void OnMouseDrag() { // TODO replace these and assign key to drag
     Debug.Log("TAHOwhtS");
     if (!prevMousePos.Equals(Vector2.negativeInfinity)) {
       transform.position = transform.position + (Vector3)(mousePos - prevMousePos);
@@ -95,9 +104,9 @@ public class Trigon : MonoBehaviour {
       float rot = link.rot;
       transform.RotateAround(link.linker.position, Vector3.forward, rot);
       transform.position += dir;
-      if (link.target.parent != null) {
+      if (link.target.parent.parent != null) {
         Debug.Log("attaching to ship");
-        transform.parent = link.target.parent;
+        transform.parent = link.target.parent.parent;
       }
     }
   }

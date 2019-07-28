@@ -1,4 +1,16 @@
 
+DONT DO SHELL DISABLING
+  will be unmaintainable
+
+make resizing meshes
+mass based hp bars
+breathing colours
+  at full, 1 breath / 2 sec
+  at 1 shell left, 2 breaths / sec
+  at none, fade to white
+
+sqrt3 digits easter egg
+
 editor
   overlap prevention
   flipping and scaling

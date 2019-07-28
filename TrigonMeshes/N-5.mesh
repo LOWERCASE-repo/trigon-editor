@@ -6,7 +6,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mirror
+  m_Name: N-5
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -17,8 +17,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 3
     localAABB:
-      m_Center: {x: -0.16666667, y: 0.28867513, z: 0}
-      m_Extent: {x: 0.5, y: 0.8660254, z: 0}
+      m_Center: {x: 0.048112523, y: 0.08333333, z: 0}
+      m_Extent: {x: 0.14433756, y: 0.24999999, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -97,7 +97,7 @@ Mesh:
       format: 0
       dimension: 0
     m_DataSize: 36
-    _typelessdata: abaaaa3e3acd933f00000000abaaaa3e3acd13bf00000000abaa2abf3acd13bf00000000
+    _typelessdata: a311c5bdaaaaaa3e00000000a311453eaaaa2abe00000000a311c5bdaaaa2abe00000000
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -151,8 +151,8 @@ Mesh:
       m_BitSize: 0
     m_UVInfo: 0
   m_LocalAABB:
-    m_Center: {x: -0.16666667, y: 0.28867513, z: 0}
-    m_Extent: {x: 0.5, y: 0.8660254, z: 0}
+    m_Center: {x: 0.048112523, y: 0.08333333, z: 0}
+    m_Extent: {x: 0.14433756, y: 0.24999999, z: 0}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 

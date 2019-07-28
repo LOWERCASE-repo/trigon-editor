@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class Shell : MonoBehaviour {
   
+  
+  
   private Vector2 posMid;
   private Vector3[] poss = new Vector3[2];
   private Color color;

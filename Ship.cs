@@ -6,6 +6,11 @@ using System.IO;
 
 public class Ship : MonoBehaviour {
   
+  /* user sets colours for edge, trigon, component
+  trigon and components will gradient to another colour
+  
+  */
+  
   [SerializeField]
   protected float speed;
   [SerializeField]
@@ -29,7 +34,7 @@ public class Ship : MonoBehaviour {
     // TODO mvmt rotation rel mass
   }
   
-  private void Center() {
+  private void Center() { // TODO switch to Rigidbody2D.centerOfMass
     Vector3 centroid = Vector3.zero;
     for (int i = 0; i < transform.childCount; i++) {
       centroid += transform.GetChild(i).transform.position;
@@ -42,9 +47,17 @@ public class Ship : MonoBehaviour {
   
   private void Save(string name) {
     Center();
+    float rot = transform.rotation.eulerAngles.z;
+    transform.Rotate(Vector3.forward, -rot);
+    Vector3 dir = transform.position;
+    transform.position -= transform.position;
+    
     char sep = Path.DirectorySeparatorChar;
     string path = "Assets" + sep + "Ships" + sep + name + ".prefab";
     PrefabUtility.SaveAsPrefabAsset(gameObject, path);
+    
+    transform.Rotate(Vector3.forward, rot);
+    transform.position += dir;
   }
   
   private void Start() {
