@@ -231,6 +231,11 @@ PrefabInstance:
       propertyPath: cc
       value: 
       objectReference: {fileID: 9146121351862953114}
+    - target: {fileID: 6597756358467294243, guid: 815415d8129b2e547b67c2cc8ab34e4e,
+        type: 3}
+      propertyPath: trigon
+      value: 
+      objectReference: {fileID: 6198480037271857373}
     - target: {fileID: 290150453205970491, guid: 815415d8129b2e547b67c2cc8ab34e4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -344,6 +349,11 @@ PrefabInstance:
       propertyPath: cc
       value: 
       objectReference: {fileID: 5400272834886814382}
+    - target: {fileID: 6597756358467294243, guid: 815415d8129b2e547b67c2cc8ab34e4e,
+        type: 3}
+      propertyPath: trigon
+      value: 
+      objectReference: {fileID: 6198480037271857373}
     - target: {fileID: 290150453205970491, guid: 815415d8129b2e547b67c2cc8ab34e4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -492,6 +502,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: vertexA
+      value: 
+      objectReference: {fileID: 6107686378752662573}
+    - target: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: vertexB
+      value: 
+      objectReference: {fileID: 853227265554100939}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51417177b491bb549a4c0a5de4eb01a6, type: 3}
 --- !u!4 &1276188766406197708 stripped
@@ -544,6 +564,11 @@ PrefabInstance:
       propertyPath: cc
       value: 
       objectReference: {fileID: 2447729637198187132}
+    - target: {fileID: 6597756358467294243, guid: 815415d8129b2e547b67c2cc8ab34e4e,
+        type: 3}
+      propertyPath: trigon
+      value: 
+      objectReference: {fileID: 6198480037271857373}
     - target: {fileID: 290150453205970491, guid: 815415d8129b2e547b67c2cc8ab34e4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -692,6 +717,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: vertexA
+      value: 
+      objectReference: {fileID: 853227265554100939}
+    - target: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: vertexB
+      value: 
+      objectReference: {fileID: 4596863279572278527}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51417177b491bb549a4c0a5de4eb01a6, type: 3}
 --- !u!4 &537716357384066981 stripped
@@ -779,6 +814,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: vertexA
+      value: 
+      objectReference: {fileID: 4596863279572278527}
+    - target: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: vertexB
+      value: 
+      objectReference: {fileID: 6107686378752662573}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51417177b491bb549a4c0a5de4eb01a6, type: 3}
 --- !u!4 &537716357609915460 stripped

@@ -6,16 +6,7 @@ public class Trigon : MonoBehaviour {
   
   [Range(0f, 1f)]
   public float health;
-  // public Color shellColor {
-  //   set {
-  //     foreach (Shell shell in shells) {
-  //       shell.
-  //     }
-  //   }
-  // }
-  // public Color trigonColor;
   
-  private HashSet<Link> links = new HashSet<Link>();
   private Vector2 prevMousePos = Vector2.negativeInfinity;
   private Vector2 mousePos;
   
@@ -34,7 +25,7 @@ public class Trigon : MonoBehaviour {
   private Linker[] linkers;
   [SerializeField]
   private Shell[] shells;
-  [SerializeField] // TODO make into transform
+  [SerializeField]
   private GameObject status;
   
   [Header("Prefabs")]
@@ -43,23 +34,25 @@ public class Trigon : MonoBehaviour {
   [SerializeField]
   private Mesh[] mirrors;
   
-  private void UpdateMesh() { // TODO still pass in index
-    int index = (int)Mathf.Round(status.transform.position.x); // PrefabUtility doesnt support SerializeField
-    Debug.Log("index " + index);
+  [Header("Debug")]
+  public HashSet<Link> links = new HashSet<Link>();
+  
+  private void UpdateMesh(int index) {
     filter.mesh = !status.activeSelf ? normals[index] : mirrors[index];
     Vector2[] triangle = System.Array.ConvertAll<Vector3, Vector2>(filter.mesh.vertices, v => v);
     for (int i = 0; i < linkers.Length; i++) {
       linkers[i].transform.localPosition = triangle[i];
       linkers[i].UpdateLegs();
-      shells[i].Init(triangle[(i + 1) % linkers.Length], triangle[(i + 2) % linkers.Length]);
+      // shells[i].Init(triangle[(i + 1) % linkers.Length], triangle[(i + 2) % linkers.Length]);
     }
     collider.points = triangle;
   }
   
+  private void UpdateMesh() {
+    UpdateMesh((int)Mathf.Round(status.transform.localPosition.x));
+  }
+  
   private void Start() {
-    for (int i = 0; i < 3; i++) {
-      linkers[i].Init(links);
-    }
     UpdateMesh();
   }
   
@@ -79,7 +72,7 @@ public class Trigon : MonoBehaviour {
     prevMousePos = Vector2.negativeInfinity;
     
     Link link = links
-    .OrderBy(t => Mathf.Abs(t.rot))
+    .OrderBy(t => Mathf.Abs(t.rot) + (t.linker.position - t.target.position).magnitude)
     .FirstOrDefault();
     
     if (link != null) {
@@ -111,10 +104,10 @@ public class Trigon : MonoBehaviour {
         UpdateMesh();
       }
       if (Input.GetButtonDown("Resize")) {
-        float index = (int)Mathf.Round(status.transform.localPosition.x + Input.GetAxisRaw("Resize")) + normals.Length;
+        int index = (int)Mathf.Round(status.transform.localPosition.x + Input.GetAxisRaw("Resize")) + normals.Length;
         index %= normals.Length;
         status.transform.localPosition = new Vector3(index, 0f, 0f);
-        UpdateMesh();
+        UpdateMesh(index);
       }
     }
   }

@@ -18,6 +18,8 @@ public class Linker : MonoBehaviour {
   private Transform legA;
   [SerializeField]
   private Transform legB;
+  [SerializeField]
+  private Trigon trigon;
   
   public void UpdateLegs() {
     rotA = -Vector2.SignedAngle(Vector2.up, legA.position - transform.position);
@@ -28,12 +30,6 @@ public class Linker : MonoBehaviour {
     float lenB = (transform.position - legB.position).magnitude;
     cc.radius = (lenA < lenB) ? lenA : lenB;
     cc.radius /= 3f;
-    // Debug.Log(rotA + " " + rotB);
-  }
-  
-  public void Init(HashSet<Link> links) {
-    this.links = links;
-    UpdateLegs();
   }
   
   private Link GetLink(Collider2D col) {
@@ -45,8 +41,9 @@ public class Linker : MonoBehaviour {
     return new Link(transform, col.transform, ang);
   }
   
-  private void Awake() {
-    trigonAnimator = transform.parent.GetComponent<Animator>();
+  private void Start() {
+    links = trigon.links;
+    UpdateLegs();
   }
   
   private void OnTriggerStay2D(Collider2D col) {

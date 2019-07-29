@@ -34,30 +34,25 @@ public class Ship : MonoBehaviour {
     // TODO mvmt rotation rel mass
   }
   
-  private void Center() { // TODO switch to Rigidbody2D.centerOfMass
-    Vector3 centroid = Vector3.zero;
+  private void Center() {
     for (int i = 0; i < transform.childCount; i++) {
-      centroid += transform.GetChild(i).transform.position;
-    }
-    centroid /= transform.childCount;
-    for (int i = 0; i < transform.childCount; i++) {
-      transform.GetChild(i).transform.position -= centroid;
+      transform.GetChild(i).transform.localPosition -= (Vector3)rb.centerOfMass;
     }
   }
   
-  private void Save(string name) {
+  private void Save() {
     Center();
-    float rot = transform.rotation.eulerAngles.z;
-    transform.Rotate(Vector3.forward, -rot);
-    Vector3 dir = transform.position;
-    transform.position -= transform.position;
+    Quaternion rot = transform.rotation;
+    Vector3 pos = transform.position;
+    transform.position = Vector3.zero;
+    transform.rotation = Quaternion.identity;
     
     char sep = Path.DirectorySeparatorChar;
-    string path = "Assets" + sep + "Ships" + sep + name + ".prefab";
+    string path = "Assets" + sep + "Ships" + sep + gameObject.name + ".prefab";
     PrefabUtility.SaveAsPrefabAsset(gameObject, path);
     
-    transform.Rotate(Vector3.forward, rot);
-    transform.position += dir;
+    transform.position = pos;
+    transform.rotation = rot;
   }
   
   private void Start() {
@@ -70,7 +65,7 @@ public class Ship : MonoBehaviour {
   
   private void FixedUpdate() {
     if (Input.GetButton("Move")) Move(mousePos);
-    if (Input.GetButtonDown("Save")) Save("Shoom");
+    if (Input.GetButtonDown("Save")) Save();
     if (!rb.velocity.Equals(Vector2.zero)) Rotate(rb.velocity);
   }
   
