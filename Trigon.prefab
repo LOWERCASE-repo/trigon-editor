@@ -226,6 +226,11 @@ PrefabInstance:
       propertyPath: legB
       value: 
       objectReference: {fileID: 6107686378752662573}
+    - target: {fileID: 6597756358467294243, guid: 815415d8129b2e547b67c2cc8ab34e4e,
+        type: 3}
+      propertyPath: cc
+      value: 
+      objectReference: {fileID: 9146121351862953114}
     - target: {fileID: 290150453205970491, guid: 815415d8129b2e547b67c2cc8ab34e4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -301,6 +306,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2874d69f4b0a3f34391581f2ed948ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &9146121351862953114 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8159426349831633002, guid: 815415d8129b2e547b67c2cc8ab34e4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1139859176189926640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4309246107733717700
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -328,6 +339,11 @@ PrefabInstance:
       propertyPath: legB
       value: 
       objectReference: {fileID: 853227265554100939}
+    - target: {fileID: 6597756358467294243, guid: 815415d8129b2e547b67c2cc8ab34e4e,
+        type: 3}
+      propertyPath: cc
+      value: 
+      objectReference: {fileID: 5400272834886814382}
     - target: {fileID: 290150453205970491, guid: 815415d8129b2e547b67c2cc8ab34e4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -403,6 +419,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2874d69f4b0a3f34391581f2ed948ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &5400272834886814382 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8159426349831633002, guid: 815415d8129b2e547b67c2cc8ab34e4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 4309246107733717700}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4667655586876300683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -517,6 +539,11 @@ PrefabInstance:
       propertyPath: legB
       value: 
       objectReference: {fileID: 4596863279572278527}
+    - target: {fileID: 6597756358467294243, guid: 815415d8129b2e547b67c2cc8ab34e4e,
+        type: 3}
+      propertyPath: cc
+      value: 
+      objectReference: {fileID: 2447729637198187132}
     - target: {fileID: 290150453205970491, guid: 815415d8129b2e547b67c2cc8ab34e4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -592,6 +619,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2874d69f4b0a3f34391581f2ed948ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!58 &2447729637198187132 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 8159426349831633002, guid: 815415d8129b2e547b67c2cc8ab34e4e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5819792192218722838}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6198480037618256866
 PrefabInstance:
   m_ObjectHideFlags: 0

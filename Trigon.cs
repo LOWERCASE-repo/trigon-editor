@@ -34,7 +34,7 @@ public class Trigon : MonoBehaviour {
   private Linker[] linkers;
   [SerializeField]
   private Shell[] shells;
-  [SerializeField]
+  [SerializeField] // TODO make into transform
   private GameObject status;
   
   [Header("Prefabs")]
@@ -43,14 +43,14 @@ public class Trigon : MonoBehaviour {
   [SerializeField]
   private Mesh[] mirrors;
   
-  private void UpdateMesh() {
-    int index = (int)status.transform.position.x; // PrefabUtility doesnt support SerializeField
+  private void UpdateMesh() { // TODO still pass in index
+    int index = (int)Mathf.Round(status.transform.position.x); // PrefabUtility doesnt support SerializeField
+    Debug.Log("index " + index);
     filter.mesh = !status.activeSelf ? normals[index] : mirrors[index];
     Vector2[] triangle = System.Array.ConvertAll<Vector3, Vector2>(filter.mesh.vertices, v => v);
     for (int i = 0; i < linkers.Length; i++) {
-      Quaternion rot = Quaternion.AngleAxis(transform.rotation.eulerAngles.z, Vector3.forward);
-      linkers[i].transform.position = transform.position + rot * triangle[i];
-      // TODO linkers[i].transform.localPosition
+      linkers[i].transform.localPosition = triangle[i];
+      linkers[i].UpdateLegs();
       shells[i].Init(triangle[(i + 1) % linkers.Length], triangle[(i + 2) % linkers.Length]);
     }
     collider.points = triangle;
@@ -64,12 +64,10 @@ public class Trigon : MonoBehaviour {
   }
   
   private void OnMouseDown() {
-    Debug.Log("TAHOS");
     animator.SetBool("Selected", true);
   }
   
   private void OnMouseDrag() { // TODO replace these and assign key to drag
-    Debug.Log("TAHOwhtS");
     if (!prevMousePos.Equals(Vector2.negativeInfinity)) {
       transform.position = transform.position + (Vector3)(mousePos - prevMousePos);
     }
@@ -113,11 +111,8 @@ public class Trigon : MonoBehaviour {
         UpdateMesh();
       }
       if (Input.GetButtonDown("Resize")) {
-        Debug.Log(Input.GetAxisRaw("Resize"));
-        int index = (int)status.transform.position.x;
-        index += (int)Input.GetAxisRaw("Resize") + normals.Length;
+        float index = (int)Mathf.Round(status.transform.localPosition.x + Input.GetAxisRaw("Resize")) + normals.Length;
         index %= normals.Length;
-        Debug.Log(index);
         status.transform.localPosition = new Vector3(index, 0f, 0f);
         UpdateMesh();
       }

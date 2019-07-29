@@ -11,7 +11,7 @@ public class Linker : MonoBehaviour {
   
   [Header("Components")]
   [SerializeField]
-  private Collider2D collider;
+  private CircleCollider2D cc;
   [SerializeField]
   private Animator trigonAnimator;
   [SerializeField]
@@ -24,6 +24,10 @@ public class Linker : MonoBehaviour {
     rotB = -Vector2.SignedAngle(Vector2.up, legB.position - transform.position);
     rotA = Mathf.Round(rotA);
     rotB = Mathf.Round(rotB);
+    float lenA = (transform.position - legA.position).magnitude;
+    float lenB = (transform.position - legB.position).magnitude;
+    cc.radius = (lenA < lenB) ? lenA : lenB;
+    cc.radius /= 3f;
     // Debug.Log(rotA + " " + rotB);
   }
   
