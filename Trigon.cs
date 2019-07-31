@@ -4,8 +4,12 @@ using System.Linq;
 
 public class Trigon : MonoBehaviour {
   
+  [Header("Debug")]
   [Range(0f, 1f)]
-  public float health;
+  public float shellLen;
+  public Color shellColor;
+  [SerializeField]
+  private Color trigonColor;
   
   private Vector2 prevMousePos = Vector2.negativeInfinity;
   private Vector2 mousePos;
@@ -18,13 +22,11 @@ public class Trigon : MonoBehaviour {
   [SerializeField]
   private PolygonCollider2D collider;
   [SerializeField]
-  private Animator animator;
+  public Animator animator;
   
   [Header("Children")]
   [SerializeField]
   private Linker[] linkers;
-  [SerializeField]
-  private Shell[] shells;
   [SerializeField]
   private GameObject status;
   
@@ -43,7 +45,6 @@ public class Trigon : MonoBehaviour {
     for (int i = 0; i < linkers.Length; i++) {
       linkers[i].transform.localPosition = triangle[i];
       linkers[i].UpdateLegs();
-      // shells[i].Init(triangle[(i + 1) % linkers.Length], triangle[(i + 2) % linkers.Length]);
     }
     collider.points = triangle;
   }
@@ -54,6 +55,7 @@ public class Trigon : MonoBehaviour {
   
   private void Start() {
     UpdateMesh();
+    renderer.material.color = trigonColor;
   }
   
   private void OnMouseDown() {
@@ -90,9 +92,6 @@ public class Trigon : MonoBehaviour {
   
   private void Update() {
     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    foreach (Shell shell in shells) {
-      shell.vis = health;
-    }
     if (animator.GetBool("Selected")) {
       Vector2 scroll = Input.mouseScrollDelta;
       if (!scroll.Equals(Vector2.zero)) {

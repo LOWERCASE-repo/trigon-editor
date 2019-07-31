@@ -11,15 +11,13 @@ public class Linker : MonoBehaviour {
   
   [Header("Components")]
   [SerializeField]
-  private CircleCollider2D cc;
+  private Trigon trigon;
   [SerializeField]
-  private Animator trigonAnimator;
+  private CircleCollider2D cc;
   [SerializeField]
   private Transform legA;
   [SerializeField]
   private Transform legB;
-  [SerializeField]
-  private Trigon trigon;
   
   public void UpdateLegs() {
     rotA = -Vector2.SignedAngle(Vector2.up, legA.position - transform.position);
@@ -48,7 +46,7 @@ public class Linker : MonoBehaviour {
   
   private void OnTriggerStay2D(Collider2D col) {
     UpdateLegs();
-    if (trigonAnimator.GetBool("Selected")) {
+    if (trigon.animator.GetBool("Selected")) {
       links.Add(GetLink(col));
     }
   }

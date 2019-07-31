@@ -55,6 +55,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
+  trigonColor: {r: 0, g: 0, b: 0, a: 1}
+  shellColor: {r: 1, g: 1, b: 1, a: 1}
   filter: {fileID: 6198480037271857362}
   renderer: {fileID: 6198480037271857363}
   collider: {fileID: 6198480037271857360}
@@ -63,10 +65,6 @@ MonoBehaviour:
   - {fileID: 814023818406094389}
   - {fileID: 6079410424695064787}
   - {fileID: 6936234965012539111}
-  shells:
-  - {fileID: 696686223351200778}
-  - {fileID: 696686224115199979}
-  - {fileID: 2263222278117829219}
   status: {fileID: 6457826812557195268}
   normals:
   - {fileID: 4300000, guid: 25aeb8ef3d8a0e84a88c79afeadda4e6, type: 2}
@@ -105,7 +103,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -512,6 +510,21 @@ PrefabInstance:
       propertyPath: vertexB
       value: 
       objectReference: {fileID: 853227265554100939}
+    - target: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: trigon
+      value: 
+      objectReference: {fileID: 6198480037271857373}
+    - target: {fileID: 1083744482602521274, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1396658971
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083744482602521274, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51417177b491bb549a4c0a5de4eb01a6, type: 3}
 --- !u!4 &1276188766406197708 stripped
@@ -520,18 +533,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4667655586876300683}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2263222278117829219 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 4667655586876300683}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &5819792192218722838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -727,6 +728,21 @@ PrefabInstance:
       propertyPath: vertexB
       value: 
       objectReference: {fileID: 4596863279572278527}
+    - target: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: trigon
+      value: 
+      objectReference: {fileID: 6198480037271857373}
+    - target: {fileID: 1083744482602521274, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1396658971
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083744482602521274, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51417177b491bb549a4c0a5de4eb01a6, type: 3}
 --- !u!4 &537716357384066981 stripped
@@ -735,18 +751,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6198480037618256866}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &696686223351200778 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 6198480037618256866}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6198480037912303619
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -824,6 +828,21 @@ PrefabInstance:
       propertyPath: vertexB
       value: 
       objectReference: {fileID: 6107686378752662573}
+    - target: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: trigon
+      value: 
+      objectReference: {fileID: 6198480037271857373}
+    - target: {fileID: 1083744482602521274, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: m_SortingLayerID
+      value: 1396658971
+      objectReference: {fileID: 0}
+    - target: {fileID: 1083744482602521274, guid: 51417177b491bb549a4c0a5de4eb01a6,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51417177b491bb549a4c0a5de4eb01a6, type: 3}
 --- !u!4 &537716357609915460 stripped
@@ -832,15 +851,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 6198480037912303619}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &696686224115199979 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6894532385922594792, guid: 51417177b491bb549a4c0a5de4eb01a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 6198480037912303619}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
