@@ -19,3 +19,10 @@ editor
 
 components
 levels
+
+optimizations
+  pooling
+    pool a bunch of triangles for destruction fx
+    means ship prefabs can be relatively intact to allow pooling
+    each weapon has its own small projectile pool
+    

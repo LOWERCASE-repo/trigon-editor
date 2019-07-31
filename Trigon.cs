@@ -15,7 +15,19 @@ public class Trigon : MonoBehaviour {
   trigon states
   
   attached to a ship
-  - 
+  - shell always exists
+  - trigon switches states
+  
+  blown apart
+  - only shell exists
+  - shell fades eventually
+  
+  in editor
+  - only trigon exists
+  - shell switches states
+  
+  TODO breathing colors and ship explosions
+  
   */
   
   private Vector2 prevMousePos = Vector2.negativeInfinity;
@@ -62,7 +74,7 @@ public class Trigon : MonoBehaviour {
   
   private void Start() {
     UpdateMesh();
-    renderer.material.color = trigonColor;
+    
   }
   
   private void OnMouseDown() {
@@ -98,6 +110,8 @@ public class Trigon : MonoBehaviour {
   }
   
   private void Update() {
+    renderer.material.color = trigonColor;
+    
     mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     if (animator.GetBool("Selected")) {
       Vector2 scroll = Input.mouseScrollDelta;
