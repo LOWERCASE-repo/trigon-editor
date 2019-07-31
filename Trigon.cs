@@ -6,6 +6,8 @@ public class Trigon : MonoBehaviour {
   
   [Header("Debug")]
   [Range(0f, 1f)]
+  public float breath;
+  [Range(0f, 1f)]
   public float shellLen;
   public Color shellColor;
   [SerializeField]
@@ -27,6 +29,17 @@ public class Trigon : MonoBehaviour {
   - shell switches states
   
   TODO breathing colors and ship explosions
+  
+  animations
+  
+  animate shell and trigon seperately?
+  
+  spawn
+  death
+  hurt
+  heal
+  select
+  attach
   
   */
   
