@@ -41,7 +41,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: health
+    attribute: shellLen
     path: 
     classID: 114
     script: {fileID: 11500000, guid: fef2342c7a0393346af310a600738abd, type: 3}
@@ -55,7 +55,7 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 3470402323
+      attribute: 1102028959
       script: {fileID: 11500000, guid: fef2342c7a0393346af310a600738abd, type: 3}
       typeID: 114
       customType: 0
@@ -106,7 +106,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: health
+    attribute: shellLen
     path: 
     classID: 114
     script: {fileID: 11500000, guid: fef2342c7a0393346af310a600738abd, type: 3}

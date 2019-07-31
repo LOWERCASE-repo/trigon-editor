@@ -11,6 +11,13 @@ public class Trigon : MonoBehaviour {
   [SerializeField]
   private Color trigonColor;
   
+  /*
+  trigon states
+  
+  attached to a ship
+  - 
+  */
+  
   private Vector2 prevMousePos = Vector2.negativeInfinity;
   private Vector2 mousePos;
   

@@ -47,11 +47,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -81
   rotB: 9
+  trigon: {fileID: 2437736182039675885}
   cc: {fileID: 665534447752302506}
-  trigonAnimator: {fileID: 2437736182039675886}
   legA: {fileID: 5195656610060875727}
   legB: {fileID: 2527403958250288925}
-  trigon: {fileID: 2437736182039675885}
 --- !u!58 &665534447752302506
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -133,10 +132,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 6198480036890753681}
   renderer: {fileID: 6417443779574188820}
   vertexA: {fileID: 853227263855878279}
   vertexB: {fileID: 4596863279929233075}
-  vis: 1
 --- !u!120 &6417443779574188820
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -276,10 +275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 6198480036890753681}
   renderer: {fileID: 6417443780336916725}
   vertexA: {fileID: 4596863279929233075}
   vertexB: {fileID: 6107686378127101537}
-  vis: 1
 --- !u!120 &6417443780336916725
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -422,11 +421,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -81
   rotB: 9
+  trigon: {fileID: 3037808819837479273}
   cc: {fileID: 198324613257520430}
-  trigonAnimator: {fileID: 3037808819837479274}
   legA: {fileID: 4892682751518907723}
   legB: {fileID: 2949795774651506073}
-  trigon: {fileID: 3037808819837479273}
 --- !u!58 &198324613257520430
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -508,10 +506,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 6715800664723707808}
   renderer: {fileID: 5924884166482470437}
   vertexA: {fileID: 63464304133246390}
   vertexB: {fileID: 3818325790579319682}
-  vis: 1
 --- !u!120 &5924884166482470437
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -651,10 +649,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 6715800664723707808}
   renderer: {fileID: 5924884167246280132}
   vertexA: {fileID: 3818325790579319682}
   vertexB: {fileID: 6914399514330358608}
-  vis: 1
 --- !u!120 &5924884167246280132
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -794,10 +792,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 6198480036890753681}
   renderer: {fileID: 5750221357199154557}
   vertexA: {fileID: 6107686378127101537}
   vertexB: {fileID: 853227263855878279}
-  vis: 1
 --- !u!120 &5750221357199154557
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -940,11 +938,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -141
   rotB: -111
+  trigon: {fileID: 7765646977200152939}
   cc: {fileID: 2033488662859957194}
-  trigonAnimator: {fileID: 7765646977200152936}
   legA: {fileID: 3897645187474537341}
   legB: {fileID: 147251841281348937}
-  trigon: {fileID: 7765646977200152939}
 --- !u!58 &2033488662859957194
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1029,11 +1026,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: 159
   rotB: -171
+  trigon: {fileID: 7282910060928903716}
   cc: {fileID: 1364416960017565829}
-  trigonAnimator: {fileID: 7282910060928903719}
   legA: {fileID: 4089322820977225778}
   legB: {fileID: 926653083025939974}
-  trigon: {fileID: 7282910060928903716}
 --- !u!58 &1364416960017565829
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1115,10 +1111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 6715800664723707808}
   renderer: {fileID: 4970529249643540556}
   vertexA: {fileID: 6914399514330358608}
   vertexB: {fileID: 63464304133246390}
-  vis: 1
 --- !u!120 &4970529249643540556
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1261,11 +1257,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -141
   rotB: -111
+  trigon: {fileID: 6715800664723707808}
   cc: {fileID: 3084447862971757825}
-  trigonAnimator: {fileID: 6715800664723707811}
   legA: {fileID: 63464304133246390}
   legB: {fileID: 3818325790579319682}
-  trigon: {fileID: 6715800664723707808}
 --- !u!58 &3084447862971757825
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1347,10 +1342,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 7282910060928903716}
   renderer: {fileID: 8996950733656444360}
   vertexA: {fileID: 7482071877682339540}
   vertexB: {fileID: 4089322820977225778}
-  vis: 1
 --- !u!120 &8996950733656444360
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -1500,7 +1495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef2342c7a0393346af310a600738abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  shellLen: 0
+  shellColor: {r: 0.8490566, g: 0.7168921, b: 0.7168921, a: 1}
+  trigonColor: {r: 0.25044498, g: 0.7924528, b: 0.61287606, a: 1}
   filter: {fileID: 2437736182039675874}
   renderer: {fileID: 2437736182039675875}
   collider: {fileID: 2437736182039675872}
@@ -1509,10 +1506,6 @@ MonoBehaviour:
   - {fileID: 8978496216013376773}
   - {fileID: 2562442044931204067}
   - {fileID: 1698855518657875415}
-  shells:
-  - {fileID: 9113834880414144314}
-  - {fileID: 9113834880708150491}
-  - {fileID: 7546181737941909843}
   status: {fileID: 3336947016974537524}
   normals:
   - {fileID: 4300000, guid: 25aeb8ef3d8a0e84a88c79afeadda4e6, type: 2}
@@ -1702,7 +1695,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef2342c7a0393346af310a600738abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  shellLen: 0
+  shellColor: {r: 0.8490566, g: 0.7168921, b: 0.7168921, a: 1}
+  trigonColor: {r: 0.25044498, g: 0.7924528, b: 0.61287606, a: 1}
   filter: {fileID: 3037808819837479270}
   renderer: {fileID: 3037808819837479271}
   collider: {fileID: 3037808819837479268}
@@ -1711,10 +1706,6 @@ MonoBehaviour:
   - {fileID: 8603816611478710145}
   - {fileID: 2914810084708567399}
   - {fileID: 2048978630531426131}
-  shells:
-  - {fileID: 8468521758696668606}
-  - {fileID: 8468521758923501151}
-  - {fileID: 7153281284413909975}
   status: {fileID: 2716748660656355760}
   normals:
   - {fileID: 4300000, guid: 25aeb8ef3d8a0e84a88c79afeadda4e6, type: 2}
@@ -1867,11 +1858,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -111
   rotB: -81
+  trigon: {fileID: 6198480036890753681}
   cc: {fileID: 2447729635424573488}
-  trigonAnimator: {fileID: 6198480036890753682}
   legA: {fileID: 853227263855878279}
   legB: {fileID: 4596863279929233075}
-  trigon: {fileID: 6198480036890753681}
 --- !u!58 &2447729635424573488
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1953,10 +1943,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 7765646977200152939}
   renderer: {fileID: 8218103755511989895}
   vertexA: {fileID: 7566802111856563611}
   vertexB: {fileID: 3897645187474537341}
-  vis: 1
 --- !u!120 &8218103755511989895
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2126,10 +2116,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 7282910060928903716}
   renderer: {fileID: 7644899676302302113}
   vertexA: {fileID: 4089322820977225778}
   vertexB: {fileID: 926653083025939974}
-  vis: 1
 --- !u!120 &7644899676302302113
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2269,10 +2259,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 7282910060928903716}
   renderer: {fileID: 7644899677148907584}
   vertexA: {fileID: 926653083025939974}
   vertexB: {fileID: 7482071877682339540}
-  vis: 1
 --- !u!120 &7644899677148907584
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2415,11 +2405,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: 39
   rotB: 99
+  trigon: {fileID: 2437736182039675885}
   cc: {fileID: 4404634151806378398}
-  trigonAnimator: {fileID: 2437736182039675886}
   legA: {fileID: 2527403958250288925}
   legB: {fileID: 8937038636061317627}
-  trigon: {fileID: 2437736182039675885}
 --- !u!58 &4404634151806378398
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2501,10 +2490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 7765646977200152939}
   renderer: {fileID: 7264065497172624143}
   vertexA: {fileID: 147251841281348937}
   vertexB: {fileID: 7566802111856563611}
-  vis: 1
 --- !u!120 &7264065497172624143
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2644,10 +2633,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 7765646977200152939}
   renderer: {fileID: 7264065498020548846}
   vertexA: {fileID: 3897645187474537341}
   vertexB: {fileID: 147251841281348937}
-  vis: 1
 --- !u!120 &7264065498020548846
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -2790,11 +2779,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: 39
   rotB: 99
+  trigon: {fileID: 3037808819837479273}
   cc: {fileID: 3953180043946527514}
-  trigonAnimator: {fileID: 3037808819837479274}
   legA: {fileID: 2949795774651506073}
   legB: {fileID: 8645326250442879871}
-  trigon: {fileID: 3037808819837479273}
 --- !u!58 &3953180043946527514
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2879,11 +2867,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: 99
   rotB: -171
+  trigon: {fileID: 6198480036890753681}
   cc: {fileID: 5400272836392098018}
-  trigonAnimator: {fileID: 6198480036890753682}
   legA: {fileID: 6107686378127101537}
   legB: {fileID: 853227263855878279}
-  trigon: {fileID: 6198480036890753681}
 --- !u!58 &5400272836392098018
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2968,11 +2955,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -111
   rotB: -21
+  trigon: {fileID: 7282910060928903716}
   cc: {fileID: 5619076390043346531}
-  trigonAnimator: {fileID: 7282910060928903719}
   legA: {fileID: 926653083025939974}
   legB: {fileID: 7482071877682339540}
-  trigon: {fileID: 7282910060928903716}
 --- !u!58 &5619076390043346531
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3057,11 +3043,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -21
   rotB: 39
+  trigon: {fileID: 7765646977200152939}
   cc: {fileID: 4840805419456769324}
-  trigonAnimator: {fileID: 7765646977200152936}
   legA: {fileID: 147251841281348937}
   legB: {fileID: 7566802111856563611}
-  trigon: {fileID: 7765646977200152939}
 --- !u!58 &4840805419456769324
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3146,11 +3131,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: 69
   rotB: 159
+  trigon: {fileID: 6715800664723707808}
   cc: {fileID: 4739935630167832019}
-  trigonAnimator: {fileID: 6715800664723707811}
   legA: {fileID: 6914399514330358608}
   legB: {fileID: 63464304133246390}
-  trigon: {fileID: 6715800664723707808}
 --- !u!58 &4739935630167832019
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3272,7 +3256,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef2342c7a0393346af310a600738abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  shellLen: 0
+  shellColor: {r: 0.8490566, g: 0.7168921, b: 0.7168921, a: 1}
+  trigonColor: {r: 0.25044498, g: 0.7924528, b: 0.61287606, a: 1}
   filter: {fileID: 6198480036890753694}
   renderer: {fileID: 6198480036890753695}
   collider: {fileID: 6198480036890753692}
@@ -3281,10 +3267,6 @@ MonoBehaviour:
   - {fileID: 814023820104184953}
   - {fileID: 6079410425320495775}
   - {fileID: 6936234963582727339}
-  shells:
-  - {fileID: 696686222634446406}
-  - {fileID: 696686222407515559}
-  - {fileID: 2263222278474954799}
   status: {fileID: 6457826811857316424}
   normals:
   - {fileID: 4300000, guid: 25aeb8ef3d8a0e84a88c79afeadda4e6, type: 2}
@@ -3437,11 +3419,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -171
   rotB: -141
+  trigon: {fileID: 3037808819837479273}
   cc: {fileID: 6761326792182762440}
-  trigonAnimator: {fileID: 3037808819837479274}
   legA: {fileID: 8645326250442879871}
   legB: {fileID: 4892682751518907723}
-  trigon: {fileID: 3037808819837479273}
 --- !u!58 &6761326792182762440
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3556,11 +3537,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -171
   rotB: -141
+  trigon: {fileID: 2437736182039675885}
   cc: {fileID: 6208754997996495180}
-  trigonAnimator: {fileID: 2437736182039675886}
   legA: {fileID: 8937038636061317627}
   legB: {fileID: 5195656610060875727}
-  trigon: {fileID: 2437736182039675885}
 --- !u!58 &6208754997996495180
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3652,7 +3632,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef2342c7a0393346af310a600738abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  shellLen: 0
+  shellColor: {r: 0.8490566, g: 0.7168921, b: 0.7168921, a: 1}
+  trigonColor: {r: 0.25044498, g: 0.7924528, b: 0.61287606, a: 1}
   filter: {fileID: 6715800664723707823}
   renderer: {fileID: 6715800664723707822}
   collider: {fileID: 6715800664723707821}
@@ -3661,10 +3643,6 @@ MonoBehaviour:
   - {fileID: 35399353406150984}
   - {fileID: 6874844120557402030}
   - {fileID: 7742894116374534554}
-  shells:
-  - {fileID: 188339411455411063}
-  - {fileID: 188339411229560982}
-  - {fileID: 1467796844606559518}
   status: {fileID: 5956277254541985657}
   normals:
   - {fileID: 4300000, guid: 25aeb8ef3d8a0e84a88c79afeadda4e6, type: 2}
@@ -3782,7 +3760,7 @@ GameObject:
   - component: {fileID: 7012335360857906491}
   - component: {fileID: 7012335360857906490}
   m_Layer: 0
-  m_Name: Shoom
+  m_Name: Cicer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3795,7 +3773,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7012335360857906493}
-  m_LocalRotation: {x: -0, y: -0, z: -0.00000017881392, w: -1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -3820,6 +3798,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1664eb8581d88594c9596c925f173fba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigonColor: {r: 0, g: 0, b: 0, a: 0}
+  moduleColor: {r: 0, g: 0, b: 0, a: 0}
+  shellColor: {r: 0, g: 0, b: 0, a: 0}
   speed: 10
   acc: 10
   rb: {fileID: 7012335360857906490}
@@ -3835,7 +3816,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 4.041452
+  m_Mass: 4.0414524
   m_LinearDrag: 1
   m_AngularDrag: 0
   m_GravityScale: 1
@@ -3888,10 +3869,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 2437736182039675885}
   renderer: {fileID: 4043417999038145537}
   vertexA: {fileID: 2527403958250288925}
   vertexB: {fileID: 8937038636061317627}
-  vis: 1
 --- !u!120 &4043417999038145537
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -4071,7 +4052,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef2342c7a0393346af310a600738abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  shellLen: 0
+  shellColor: {r: 0.8490566, g: 0.7168921, b: 0.7168921, a: 1}
+  trigonColor: {r: 0.25044498, g: 0.7924528, b: 0.61287606, a: 1}
   filter: {fileID: 7282910060928903723}
   renderer: {fileID: 7282910060928903722}
   collider: {fileID: 7282910060928903721}
@@ -4080,10 +4063,6 @@ MonoBehaviour:
   - {fileID: 4061273265651590348}
   - {fileID: 7442501092987423274}
   - {fileID: 6004705878287983646}
-  shells:
-  - {fileID: 4232350865366253299}
-  - {fileID: 4232350865055427858}
-  - {fileID: 3206528258578311322}
   status: {fileID: 7676873304414599933}
   normals:
   - {fileID: 4300000, guid: 25aeb8ef3d8a0e84a88c79afeadda4e6, type: 2}
@@ -4273,7 +4252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fef2342c7a0393346af310a600738abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  shellLen: 0
+  shellColor: {r: 0.8490566, g: 0.7168921, b: 0.7168921, a: 1}
+  trigonColor: {r: 0.25044498, g: 0.7924528, b: 0.61287606, a: 1}
   filter: {fileID: 7765646977200152932}
   renderer: {fileID: 7765646977200152933}
   collider: {fileID: 7765646977200152934}
@@ -4282,10 +4263,6 @@ MonoBehaviour:
   - {fileID: 3930389380424068995}
   - {fileID: 7610544175232581989}
   - {fileID: 6737955670422646609}
-  shells:
-  - {fileID: 3777203306647532988}
-  - {fileID: 3777203306957563485}
-  - {fileID: 2497499582894646229}
   status: {fileID: 7232426192305877426}
   normals:
   - {fileID: 4300000, guid: 25aeb8ef3d8a0e84a88c79afeadda4e6, type: 2}
@@ -4435,10 +4412,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 3037808819837479273}
   renderer: {fileID: 3738541972428115589}
   vertexA: {fileID: 2949795774651506073}
   vertexB: {fileID: 8645326250442879871}
-  vis: 1
 --- !u!120 &3738541972428115589
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -4578,10 +4555,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 2437736182039675885}
   renderer: {fileID: 3377330254651269513}
   vertexA: {fileID: 5195656610060875727}
   vertexB: {fileID: 2527403958250288925}
-  vis: 1
 --- !u!120 &3377330254651269513
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -4721,10 +4698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 2437736182039675885}
   renderer: {fileID: 3377330255481139816}
   vertexA: {fileID: 8937038636061317627}
   vertexB: {fileID: 5195656610060875727}
-  vis: 1
 --- !u!120 &3377330255481139816
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -4867,11 +4844,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: 9
   rotB: 69
+  trigon: {fileID: 7282910060928903716}
   cc: {fileID: 8783966877390440535}
-  trigonAnimator: {fileID: 7282910060928903719}
   legA: {fileID: 7482071877682339540}
   legB: {fileID: 4089322820977225778}
-  trigon: {fileID: 7282910060928903716}
 --- !u!58 &8783966877390440535
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4956,11 +4932,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: 9
   rotB: 69
+  trigon: {fileID: 6198480036890753681}
   cc: {fileID: 9146121351162066646}
-  trigonAnimator: {fileID: 6198480036890753682}
   legA: {fileID: 4596863279929233075}
   legB: {fileID: 6107686378127101537}
-  trigon: {fileID: 6198480036890753681}
 --- !u!58 &9146121351162066646
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5042,10 +5017,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 3037808819837479273}
   renderer: {fileID: 2675785634354465549}
   vertexA: {fileID: 4892682751518907723}
   vertexB: {fileID: 2949795774651506073}
-  vis: 1
 --- !u!120 &2675785634354465549
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5185,10 +5160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc234eff010e5f84b8afdd765ba68f27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  trigon: {fileID: 3037808819837479273}
   renderer: {fileID: 2675785635117160684}
   vertexA: {fileID: 8645326250442879871}
   vertexB: {fileID: 4892682751518907723}
-  vis: 1
 --- !u!120 &2675785635117160684
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -5331,11 +5306,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: 69
   rotB: 159
+  trigon: {fileID: 7765646977200152939}
   cc: {fileID: 8588907102049092376}
-  trigonAnimator: {fileID: 7765646977200152936}
   legA: {fileID: 7566802111856563611}
   legB: {fileID: 3897645187474537341}
-  trigon: {fileID: 7765646977200152939}
 --- !u!58 &8588907102049092376
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5420,11 +5394,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotA: -21
   rotB: 39
+  trigon: {fileID: 6715800664723707808}
   cc: {fileID: 8492576371609443303}
-  trigonAnimator: {fileID: 6715800664723707811}
   legA: {fileID: 3818325790579319682}
   legB: {fileID: 6914399514330358608}
-  trigon: {fileID: 6715800664723707808}
 --- !u!58 &8492576371609443303
 CircleCollider2D:
   m_ObjectHideFlags: 0
