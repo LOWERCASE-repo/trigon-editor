@@ -41,6 +41,8 @@ public class Trigon : MonoBehaviour {
   select
   attach
   
+  TODO switch breathing to float and move to ship
+  
   */
   
   private Vector2 prevMousePos = Vector2.negativeInfinity;
