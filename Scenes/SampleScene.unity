@@ -190,7 +190,7 @@ PrefabInstance:
     - target: {fileID: 7012335362190271431, guid: 2bd9ced401cce0f4fac51f1dc800200a,
         type: 3}
       propertyPath: acc
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7012335362190271430, guid: 2bd9ced401cce0f4fac51f1dc800200a,
         type: 3}

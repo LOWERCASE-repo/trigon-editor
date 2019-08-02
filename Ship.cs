@@ -26,8 +26,6 @@ public class Ship : MonoBehaviour {
   
   // holy grail methods
   private void Move(Vector2 pos) {
-    // mass only affects acc, doesnt result in unique behav
-    // drag = acc / speed / mass
     rb.AddForce((pos - rb.position).normalized * acc);
   }
   
